@@ -1,5 +1,4 @@
-import { FastifyInstance } from 'fastify'
-import { FastifyOptions, FastifyNext } from 'fastify-extensions'
+import { FastifyInstance, FastifyOptions, FastifyNext } from 'fastify'
 import { getHealthcheckHandler } from './healthcheck'
 
 export function healthcheckRoutes (fastify: FastifyInstance, options: FastifyOptions, next: FastifyNext) {
