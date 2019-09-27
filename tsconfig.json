@@ -5,13 +5,16 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "strict": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "baseUrl": "./",
+    "outDir": "dist",
+    "paths": {
+      "*": [
+        "types/*"
+      ]
+    }
   },
   "exclude": [
     "node_modules"
-  ],
-  "baseUrl": "./",
-  "paths": {
-    "*": ["types/*"]
-  }
+  ]
 }
