@@ -1,16 +1,24 @@
-import { port, address, basicAuth, logging } from '../../config'
-import { logger } from '../../lib/logger'
 import fastify from 'fastify'
-
 import { basicAuth as basicAuthHook } from './hooks/basic-auth'
+import container from '../../container'
+import { Config } from '../../config'
+import { Logger } from '../../lib/logger'
+
+// Routes
 import { healthcheckRoutes } from './routes/healthcheck'
-import { pushRoutes } from './routes/push'
+import { rpcRoutes } from './routes/rpc'
+
+const config = container.resolve<Config>('config')
+const logger = container.resolve<Logger>('logger')
 
 const server = fastify({
-  logger: logging
+  logger: config.logging
 })
 
-server.register(require('fastify-sensible'))
+server.addHook('preHandler', (request, reply, next) => {
+  request.container = container.createScope()
+  next()
+})
 
 /*
  * Public
@@ -20,19 +28,14 @@ server.register(healthcheckRoutes)
 /*
  * Basic Auth
  */
-server.register(require('fastify-basic-auth'), basicAuthHook(basicAuth))
+server.register(require('fastify-basic-auth'), basicAuthHook(config.basicAuth))
 
 server.register((instance, options, next) => {
   instance.addHook('preHandler', server.basicAuth)
-  instance.register(pushRoutes)
+  instance.register(rpcRoutes)
 
   next()
 })
-
-/*
- * Escher
- */
-// TODO
 
 function shutdown () {
   return server.close()
@@ -42,7 +45,7 @@ function shutdown () {
   process.once('SIGTERM', shutdown)
   process.once('SIGINT', shutdown)
 
-  server.listen(port, address, (error) => {
+  server.listen(config.port, config.address, (error) => {
     if (error) {
       logger.error({ err: error }, 'server-start-error')
       process.exit(1)

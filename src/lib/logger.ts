@@ -1,16 +1,7 @@
 import { default as pino } from 'pino'
-import { logging } from '../config'
+import { Config } from '../config'
 
-const prettyPrint = {
-  translateTime: 'yyyy-mm-dd HH:MM:ss.l',
-  colorize: true,
-  ignore: 'hostname,pid',
-}
+export type Logger = pino.Logger
 
-export const logger = pino({
-  ...logging,
-  prettyPrint: logging.prettyPrint ? prettyPrint : false,
-  serializers: {
-    err: pino.stdSerializers.err
-  }
-})
+export const buildLogger = (config: Config): Logger =>
+  pino(config.logging)

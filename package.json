@@ -30,7 +30,8 @@
     "fastify-basic-auth": "^0.4.0",
     "fastify-sensible": "^2.1.1",
     "lodash": "^4.17.15",
-    "pino": "^5.13.3"
+    "pino": "^5.13.3",
+    "pino-pretty": "^3.2.1"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
@@ -40,8 +41,7 @@
     "@types/pino": "^5.8.10",
     "husky": "^3.0.5",
     "jest": "^24.9.0",
-    "nodemon": "^1.19.2",
-    "pino-pretty": "^3.2.1",
+    "nodemon": "^1.19.3",
     "prettier-package-json": "^2.1.0",
     "rimraf": "^3.0.0",
     "ts-jest": "^24.1.0",

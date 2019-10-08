@@ -1,0 +1,11 @@
+version: 1
+name: oopsiee
+commands:
+  inapp:
+    - command: campaign
+      description: Fetch In-app campaign details
+      arguments:
+        - argument: <id>
+          key: id
+          description: Campaign ID
+      action: inApp.getCampaign
