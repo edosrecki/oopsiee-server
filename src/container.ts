@@ -1,6 +1,7 @@
 import { createContainer, asFunction, asValue } from 'awilix'
 import { config } from './config'
 import { buildLogger } from './lib/logger'
+import { buildQueue } from './lib/queue'
 
 const container = createContainer({
   injectionMode: 'CLASSIC'
@@ -8,7 +9,8 @@ const container = createContainer({
 
 container.register({
   config: asValue(config),
-  logger: asFunction(buildLogger).singleton()
+  logger: asFunction(buildLogger).singleton(),
+  queue: asFunction(buildQueue).singleton()
 })
 
-export default container
+export { container }

@@ -11,11 +11,11 @@ interface D {
   logger: Logger
 }
 
-export const hello: Procedure<P, D> = async ({ name }, { logger }) => {
-  logger.info({ name }, 'hello-procedure')
+export const hello: Procedure<P, D> = async (params, { logger }) => {
+  logger.info({ params }, 'hello-procedure')
 
   // Each procedure returns a JSON object
   return {
-    message: `Hello, ${name}!`
+    message: `Hello, ${params.name}!`
   }
 }

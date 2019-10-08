@@ -1,6 +1,6 @@
 import fastify from 'fastify'
 import { basicAuth as basicAuthHook } from './hooks/basic-auth'
-import container from '../../container'
+import { container } from '../../container'
 import { Config } from '../../config'
 import { Logger } from '../../lib/logger'
 

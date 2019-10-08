@@ -20,6 +20,10 @@ interface Config {
     prettyPrint: boolean | any
     enabled: boolean
   }
+  redis: {
+    url: string
+    jobsQueue: string
+  }
 }
 
 const config: Config = {
@@ -38,6 +42,10 @@ const config: Config = {
       ignore: 'hostname,pid'
     },
     enabled: !isTest
+  },
+  redis: {
+    url: getString('REDIS_URL'),
+    jobsQueue: getString('REDIS_JOBS_QUEUE', 'oopsiee-jobs')
   }
 }
 
