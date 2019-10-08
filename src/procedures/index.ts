@@ -1,5 +1,5 @@
-import inApp from './in-app'
+import example from './example'
 
 export default {
-  inApp
+  example
 }
