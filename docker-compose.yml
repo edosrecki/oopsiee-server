@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  web:
+    image: node:12
+    working_dir: /oopsiee
+    command: npm run start:web
+    expose:
+      - ${PORT:-8000}
+    ports:
+      - "${PORT:-8000}:${PORT:-8000}"
+    volumes:
+      - .:/oopsiee
+    depends_on:
+      - redis
+    networks:
+      - oopsiee
+
+  processor:
+    image: node:12
+    working_dir: /oopsiee
+    command: npm run start:processor
+    volumes:
+      - .:/oopsiee
+    depends_on:
+      - redis
+    networks:
+      - oopsiee
+
+  redis:
+    image: bitnami/redis:latest
+    expose:
+      - 6379
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - oopsiee
+
+networks:
+  oopsiee:
+    driver: bridge

@@ -16,8 +16,8 @@
   "scripts": {
     "lint": "tslint -c tslint.json 'lib/**/*.ts'",
     "lint:fix": "npm run lint -- --fix",
-    "start:web": "nodemon -e ts -r ts-node/register src/processes/web",
     "start:processor": "nodemon -e ts -r ts-node/register src/processes/workers/processor",
+    "start:web": "nodemon -e ts -r ts-node/register src/processes/web",
     "pretest": "npm run lint",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
