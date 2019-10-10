@@ -1,0 +1,66 @@
+:toc: macro
+:toc-title:
+:toclevels: 10
+
+# oopsiee-server
+A backend for [oOPSiee CLI](https://github.com/edosrecki/oopsiee) tool.
+
+toc::[]
+
+## Procedures
+Each oOPSiee CLI command must have a corresponding procedure in
+`oopsiee-server`. CLI command is mapped to a procedure via config
+file. oOPSiee CLI tool simply reads the config file to know which
+procedure to call. Procedures are called through HTTP API.
+
+### Adding a new procedure
+See example:
+
+* Procedure implementation: link:src/procedures/example[`src/procedures/example`]
+* Command definition: link:src/commands.yml[`src/commands.yml`]
+
+## Run
+### Development mode
+#### Docker
+```shell
+make up
+make down
+make restart
+```
+
+#### Manual
+```shell
+nvm use
+npm install
+
+# Start Redis manually
+npm start:processor:dev
+npm start:web:dev
+```
+
+### Production mode
+#### Docker
+```shell
+make prod-up
+make prod-down
+make prod-restart
+```
+
+#### Manual
+```shell
+nvm use
+npm install
+npm run clean
+npm run build
+
+# Start Redis manually
+npm start:processor:prod
+npm start:web:prod
+```
+
+## Test
+```shell
+npm test
+# or
+npm test:watch
+```
