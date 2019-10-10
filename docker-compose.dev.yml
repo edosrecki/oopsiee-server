@@ -8,9 +8,9 @@ services:
     volumes:
       - .:/oopsiee
 
-  processor:
+  job-processor:
     build:
       dockerfile: Dockerfile.dev
-    command: npm run start:processor:dev
+    command: npm run start:job-processor:dev
     volumes:
       - .:/oopsiee

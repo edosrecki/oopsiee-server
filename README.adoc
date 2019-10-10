@@ -34,7 +34,7 @@ nvm use
 npm install
 
 # Start Redis manually
-npm start:processor:dev
+npm start:job-processor:dev
 npm start:web:dev
 ```
 
@@ -54,7 +54,7 @@ npm run clean
 npm run build
 
 # Start Redis manually
-npm start:processor:prod
+npm start:job-processor:prod
 npm start:web:prod
 ```
 

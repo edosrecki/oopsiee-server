@@ -1,14 +1,16 @@
 import { FastifyHttpResponse } from 'fastify'
-import { get } from 'lodash'
 import { SubmitSyncRequest } from '../types'
-import procedures from '../../../../../procedures'
+import { Procedure } from '../../../../../procedures/types'
 
 export async function submitSyncHandler (request: SubmitSyncRequest, reply: FastifyHttpResponse) {
-  const procedure = get(procedures, request.body.procedure)
-  if (!procedure) {
-    throw new Error('Procedure not found.')
+  const resolutionPath = `procedure.${request.body.procedure}`
+
+  const exists = request.container.has(resolutionPath)
+  if (!exists) {
+    reply.status(400).send({ message: 'Procedure not found.' })
   }
 
-  const result = await procedure(request.body.params, request.container.cradle)
+  const procedure = request.container.resolve<Procedure>(resolutionPath)
+  const result = await procedure(request.body.params)
   reply.send(result)
 }

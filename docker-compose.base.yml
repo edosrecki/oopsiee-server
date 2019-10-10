@@ -17,7 +17,7 @@ services:
     networks:
       - oopsiee
 
-  processor:
+  job-processor:
     build:
       context: .
       args:

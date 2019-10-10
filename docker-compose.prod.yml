@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile.prod
     command: npm run start:web:prod
 
-  processor:
+  job-processor:
     build:
       dockerfile: Dockerfile.prod
-    command: npm run start:processor:prod
+    command: npm run start:job-processor:prod

@@ -1,5 +1,8 @@
-import example from './example'
+import flatten from 'flat'
+import { FlatProcedures, Procedures } from './types'
 
-export default {
+import { example } from './example'
+
+export const procedures = flatten<Procedures, FlatProcedures>({
   example
-}
+})
