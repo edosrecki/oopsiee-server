@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web:
+    build:
+      dockerfile: Dockerfile.dev
+    command: npm run start:web:dev
+    volumes:
+      - .:/oopsiee
+
+  processor:
+    build:
+      dockerfile: Dockerfile.dev
+    command: npm run start:processor:dev
+    volumes:
+      - .:/oopsiee

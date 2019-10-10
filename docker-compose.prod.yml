@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build:
+      dockerfile: Dockerfile.prod
+    command: npm run start:web:prod
+
+  processor:
+    build:
+      dockerfile: Dockerfile.prod
+    command: npm run start:processor:prod
