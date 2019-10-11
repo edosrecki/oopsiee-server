@@ -5,7 +5,7 @@ interface Directory {
   [fileName: string]: Buffer
 }
 
-export const readDirectory = async (dir: string) => {
+export const readDirectory = async (dir: string): Promise<Directory> => {
   const entries = await fs.readdir(dir)
 
   const result: Directory = {}
