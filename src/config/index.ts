@@ -10,10 +10,6 @@ const isProd = env === 'production'
 interface Config {
   port: number
   address: string
-  basicAuth: {
-    username: string
-    password: string
-  }
   logging: {
     level: string
     useLevelLabels: boolean
@@ -29,10 +25,6 @@ interface Config {
 const config: Config = {
   port: getNumber('PORT', 8000),
   address: '0.0.0.0',
-  basicAuth: {
-    username: getString('BASIC_AUTH_USERNAME', 'oopsiee'),
-    password: getString('BASIC_AUTH_PASSWORD', 'oopsiee')
-  },
   logging: {
     level: getString('LOG_LEVEL', 'info'),
     useLevelLabels: !isProd,
