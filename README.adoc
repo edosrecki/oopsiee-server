@@ -28,6 +28,9 @@ make down
 make restart
 ```
 
+**Note**: Containers will reload automatically on code changes. However, if changes
+were made to `package.json`, it is necessary to run `make restart`.
+
 #### Manual
 ```shell
 nvm use

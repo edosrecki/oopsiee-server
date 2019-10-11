@@ -1,5 +1,5 @@
 import fastify from 'fastify'
-import { basicAuth as basicAuthHook } from './hooks/basic-auth'
+import { jwtAuth } from './plugins/jwt-auth'
 import { container } from '../../container'
 import { Config } from '../../config'
 import { Logger } from '../../lib/logger'
@@ -26,12 +26,12 @@ server.addHook('preHandler', (request, reply, next) => {
 server.register(healthcheckRoutes)
 
 /*
- * Basic Auth
+ * JWT Auth
  */
-server.register(require('fastify-basic-auth'), basicAuthHook(config.basicAuth))
+server.register(jwtAuth)
 
 server.register((instance, options, next) => {
-  instance.addHook('preHandler', server.basicAuth)
+  instance.addHook('onRequest', server.jwtAuth)
   instance.register(rpcRoutes)
 
   next()

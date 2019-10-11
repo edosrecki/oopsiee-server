@@ -17,7 +17,7 @@ declare module "fastify" {
     HttpRequest = http.IncomingMessage,
     HttpResponse = http.ServerResponse
     > {
-    basicAuth: any
+    jwtAuth: any
   }
 
   export interface FastifyRequest<
