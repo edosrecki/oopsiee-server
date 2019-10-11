@@ -6,7 +6,7 @@ ARG NPM_TOKEN
 COPY .npmrc ./
 COPY package*.json ./
 RUN npm ci
-RUN rm -rf .npmrc
+RUN rm -f .npmrc
 
 COPY . .
 RUN npm run build
