@@ -17,7 +17,7 @@ declare module "fastify" {
     HttpRequest = http.IncomingMessage,
     HttpResponse = http.ServerResponse
     > {
-    jwtAuth: any
+    jwtAuth: (request: FastifyHttpRequest, reply: FastifyHttpResponse, next: FastifyNext) => void
   }
 
   export interface FastifyRequest<
@@ -28,6 +28,10 @@ declare module "fastify" {
     Body = DefaultBody
     > {
     container: AwilixContainer
+  }
+
+  export interface FastifyReply<HttpResponse> {
+    sendFile: (filePath: string) => void
   }
 
   export type FastifyOptions = RegisterOptions<Server, IncomingMessage, ServerResponse>

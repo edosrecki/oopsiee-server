@@ -9,6 +9,7 @@ A backend for link:https://github.com/edosrecki/oopsiee[oOPSiee CLI] tool.
 * Supports **synchronous** commands
 * Supports **asynchronous** jobs
 * Easily **extensible**
+* One command **startup**
 * Ready for **Docker**
 * Uses **private/public key** authentication
 * Written in **TypeScript**
@@ -88,6 +89,5 @@ npm run start:web:prod
 ## Test
 ```shell
 npm test
-# or
 npm test:watch
 ```

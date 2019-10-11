@@ -1,4 +1,5 @@
 import fastify from 'fastify'
+import path from 'path'
 import { jwtAuth } from './plugins/jwt-auth'
 import { container } from '../../container'
 import { Config } from '../../config'
@@ -6,6 +7,7 @@ import { Logger } from '../../lib/logger'
 
 // Routes
 import { healthcheckRoutes } from './routes/healthcheck'
+import { commandsRoutes } from './routes/commands'
 import { rpcRoutes } from './routes/rpc'
 
 const config = container.resolve<Config>('config')
@@ -20,10 +22,15 @@ server.addHook('preHandler', (request, reply, next) => {
   next()
 })
 
+server.register(require('fastify-static'), {
+  root: path.join(__dirname, '../../commands')
+})
+
 /*
  * Public
  */
 server.register(healthcheckRoutes)
+server.register(commandsRoutes)
 
 /*
  * JWT Auth
