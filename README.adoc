@@ -19,6 +19,18 @@ See example:
 * Procedure implementation: link:src/procedures/example[`src/procedures/example`]
 * Command definition: link:src/commands.yml[`src/commands.yml`]
 
+## Authentication
+oOPSiee CLI uses your private key to sign a JWT token containing your username,
+and sends it over to oopsiee-server in the `Authorization` header. To use the CLI
+add your public key to the server.
+
+### Adding your public key
+Add your public key in `PEM` format to link:keys/[`keys/`] directory.
+File name must only contain your username without any file extensions.
+
+**Hint**: To convert your RSA public key to `PEM` format, run:
+`ssh-keygen -f id_rsa.pub -m 'PEM' -e > public.pem`.
+
 ## Run
 ### Development mode
 #### Docker
