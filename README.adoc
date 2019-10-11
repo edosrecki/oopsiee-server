@@ -3,7 +3,19 @@
 :toclevels: 10
 
 # oopsiee-server
-A backend for [oOPSiee CLI](https://github.com/edosrecki/oopsiee) tool.
+
+A backend for link:https://github.com/edosrecki/oopsiee[oOPSiee CLI] tool.
+
+* Supports **synchronous** commands
+* Supports **asynchronous** jobs
+* Easily **extensible**
+* Ready for **Docker**
+* Uses **private/public key** authentication
+* Written in **TypeScript**
+* Has proper **dependency injection**
+* Contains **examples**
+
+---
 
 toc::[]
 
