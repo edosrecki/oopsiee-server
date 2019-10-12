@@ -2,7 +2,7 @@
 :toc-title:
 :toclevels: 10
 
-# oopsiee-server
+= oopsiee-server
 
 A backend for link:https://github.com/edosrecki/oopsiee[oOPSiee CLI] tool.
 
@@ -20,33 +20,33 @@ A backend for link:https://github.com/edosrecki/oopsiee[oOPSiee CLI] tool.
 
 toc::[]
 
-## Procedures
+== Procedures
 Each oOPSiee CLI command must have a corresponding procedure in
 `oopsiee-server`. CLI command is mapped to a procedure via config
 file. oOPSiee CLI tool simply reads the config file to know which
 procedure to call. Procedures are called through HTTP API.
 
-### Adding a new procedure
+=== Adding a new procedure
 See example:
 
 * Procedure implementation: link:src/procedures/example[`src/procedures/example`]
 * Command definition: link:src/commands.yml[`src/commands.yml`]
 
-## Authentication
+== Authentication
 oOPSiee CLI uses your private key to sign a JWT token containing your username,
 and sends it over to oopsiee-server in the `Authorization` header. To use the CLI
 add your public key to the server.
 
-### Adding your public key
+=== Adding your public key
 Add your public key in `PEM` format to link:keys/[`keys/`] directory.
 File name must only contain your username without any file extensions.
 
 **Hint**: To convert your RSA public key to `PEM` format, run:
 `ssh-keygen -f id_rsa.pub -m 'PEM' -e > public.pem`.
 
-## Run
-### Development mode
-#### Docker
+== Run
+=== Development mode
+==== Docker
 ```shell
 make up
 make down
@@ -56,7 +56,7 @@ make restart
 **Note**: Containers will reload automatically on code changes. However, if changes
 were made to `package.json`, it is necessary to run `make restart`.
 
-#### Manual
+==== Manual
 ```shell
 nvm use
 npm install
@@ -66,15 +66,15 @@ npm run start:job-processor:dev
 npm run start:web:dev
 ```
 
-### Production mode
-#### Docker
+=== Production mode
+==== Docker
 ```shell
 make prod-up
 make prod-down
 make prod-restart
 ```
 
-#### Manual
+==== Manual
 ```shell
 nvm use
 npm install
@@ -86,7 +86,7 @@ npm run start:job-processor:prod
 npm run start:web:prod
 ```
 
-## Test
+== Test
 ```shell
 npm test
 npm test:watch
