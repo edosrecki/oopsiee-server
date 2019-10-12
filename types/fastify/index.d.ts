@@ -9,9 +9,9 @@ import { DefaultParams } from 'fastify'
 import { DefaultHeaders } from 'fastify'
 import { DefaultBody } from 'fastify'
 import { AwilixContainer } from 'awilix'
+import { Context } from '../../src/procedures/types'
 
 declare module "fastify" {
-
   export interface FastifyInstance<
     HttpServer = http.Server,
     HttpRequest = http.IncomingMessage,
@@ -28,6 +28,7 @@ declare module "fastify" {
     Body = DefaultBody
     > {
     container: AwilixContainer
+    context: Context
   }
 
   export interface FastifyReply<HttpResponse> {

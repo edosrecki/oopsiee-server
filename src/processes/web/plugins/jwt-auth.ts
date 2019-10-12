@@ -12,8 +12,10 @@ export const jwtAuth = fp(async (instance, options, next) => {
   instance.decorate('jwtAuth', (request: FastifyHttpRequest, reply: FastifyHttpResponse, next: FastifyNext) => {
     try {
       const token = extractToken(request)
-      const key = extractKey(keys, token)
+      const { user, key } = decodeToken(keys, token)
       validateToken(token, key)
+
+      request.context = { user }
     } catch (error) {
       return reply.status(401).send({ message: error.message })
     }
@@ -37,7 +39,7 @@ function extractToken (request: FastifyHttpRequest): string {
   return parts[1]
 }
 
-function extractKey (keys: any, token: string) {
+function decodeToken (keys: any, token: string) {
   const data = decode(token)
   const user = get(data, 'user')
 
@@ -50,7 +52,7 @@ function extractKey (keys: any, token: string) {
     throw new Error(`Missing PEM key for user ${user}.`)
   }
 
-  return key
+  return { user, key }
 }
 
 function validateToken (token: string, key: string) {

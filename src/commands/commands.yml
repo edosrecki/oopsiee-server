@@ -1,11 +1,43 @@
-version: 1
-name: oopsiee
-commands:
-  example:
-    - command: hello
-      description: Hello world example.
-      arguments:
-        - argument: <name>
-          key: name
-          description: Name
-      action: example.hello
+# Namespace, used as a prefix before command when running.
+example:
+  # Command to run in CLI.
+  - command: oopsiee
+    # Action to execute on the server.
+    action: example.oopsiee
+    # Is command synchronous or asynchronous by default? (default = false)
+    async: true
+    # Optional alias.
+    alias: ops
+    # Description to show when running help.
+    description: oOPSiee CLI example.
+    # Optional ordered list of arguments.
+    arguments:
+      # Name to show when running help.
+      - name: argument
+        # Description to show when running help.
+        description: Argument description
+        # Optional key to use for this value when sending data to server (default = name).
+        as: someArgument
+        # Is the argument required (default = false).
+        required: true
+        # Is the argument variadic; only last argument can be variadic (default = false).
+        variadic: false
+        # Optional type(s) used for validation and parsing (default = string).
+        type: int
+    # Optional unordered list of options.
+    options:
+      # Short version of the flag, at least one of short or long are required.
+      - short: o
+        # Long version of the flag.
+        long: option
+        # Description to show when running help.
+        description: Option description
+        # Optional key to use for this value when sending data to server (default = name).
+        as: someOption
+        # Is it a boolean option or a value option (default = false)?
+        value: true
+        # Is the value for the option required? If it is not required, option
+        # serves as a boolean option when used without value (default = false).
+        required: true
+        # Optional type(s) used for validation and parsing of option value (default = string).
+        type: [array, int]

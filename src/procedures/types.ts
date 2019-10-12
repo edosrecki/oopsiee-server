@@ -1,13 +1,22 @@
+export interface Context {
+  user: string
+}
+
 export type Procedure<
+  Params = any,
+  Return = any
+  > = (params: Params, context: Context) => Promise<Return>
+
+export type ProcedureFactory<
   Dependencies = any,
   Params = any,
   Return = any
-  > = (dependencies: Dependencies) => (params: Params) => Promise<Return>
+  > = (dependencies: Dependencies) => Procedure<Params, Return>
 
-export interface Procedures {
-  [key: string]: Procedures | Procedure
+export interface ProcedureFactories {
+  [key: string]: ProcedureFactories | ProcedureFactory
 }
 
-export interface FlatProcedures {
-  [key: string]: Procedure
+export interface FlatProcedureFactories {
+  [key: string]: ProcedureFactory
 }

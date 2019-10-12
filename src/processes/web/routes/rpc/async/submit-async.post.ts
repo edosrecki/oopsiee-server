@@ -9,7 +9,7 @@ export async function submitAsyncHandler (request: SubmitAsyncRequest, reply: Fa
   }
 
   const queue = request.container.resolve<Queue>('queue')
-  const job = await queue.add(request.body)
+  const job = await queue.add({ ...request.body, context: request.context })
 
   reply.status(201).send({ id: job.id })
 }

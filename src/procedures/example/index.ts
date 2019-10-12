@@ -1,5 +1,5 @@
-import { hello } from './hello'
+import { oopsiee } from './oopsiee'
 
 export const example = {
-  hello
+  oopsiee
 }

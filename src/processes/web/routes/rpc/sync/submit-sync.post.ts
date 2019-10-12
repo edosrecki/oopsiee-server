@@ -11,6 +11,6 @@ export async function submitSyncHandler (request: SubmitSyncRequest, reply: Fast
   }
 
   const procedure = request.container.resolve<Procedure>(resolutionPath)
-  const result = await procedure(request.body.params)
+  const result = await procedure(request.body.params, request.context)
   reply.send(result)
 }

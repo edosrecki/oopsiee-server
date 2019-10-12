@@ -11,7 +11,7 @@ export const processJob = (container: AwilixContainer) => async (job: Job) => {
   }
 
   const procedure = container.resolve<Procedure>(resolutionPath)
-  const result = await procedure(job.data.params)
+  const result = await procedure(job.data.params, job.data.context)
 
   await job.update({
     ...job.data,
