@@ -6,11 +6,11 @@ interface Dependencies {
 }
 
 interface Params {
-  name: string
+  [key: string]: any
 }
 
 export const oopsiee: ProcedureFactory<Dependencies, Params> = ({ logger }) => async (params, context) => {
-  logger.info({ params }, 'oopsiee-procedure')
+  logger.info({ params }, 'procedure: example.oopsiee')
 
   return {
     message: `Hello, ${context.user}!`
