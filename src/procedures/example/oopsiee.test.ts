@@ -1,7 +1,7 @@
 import { oopsiee } from './oopsiee'
 import { buildLogger } from '../../util/test-mocks'
 
-describe('procedures:example:oopsiee', () => {
+describe('procedures.example.oopsiee', () => {
   const params = { key: 'value' }
   const context = { user: 'user' }
 
@@ -14,7 +14,7 @@ describe('procedures:example:oopsiee', () => {
     await procedure(params, context)
 
     expect(logger.info).toBeCalledTimes(1)
-    expect(logger.info).toBeCalledWith({ params }, 'procedure: example.oopsiee')
+    expect(logger.info).toBeCalledWith({ params }, 'procedures.example.oopsiee')
   })
 
   test('return hello message', async () => {

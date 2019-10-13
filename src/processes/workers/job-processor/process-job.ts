@@ -1,9 +1,9 @@
-import { AwilixContainer } from 'awilix'
 import { Job } from '../../../lib/queue'
 import { Procedure } from '../../../procedures/types'
+import { Container } from '../../../container'
 
-export const processJob = (container: AwilixContainer) => async (job: Job) => {
-  const resolutionPath = `procedure.${job.data.procedure}`
+export const processJob = (container: Container) => async (job: Job) => {
+  const resolutionPath = `procedures.${job.data.procedure}`
 
   const exists = container.has(resolutionPath)
   if (!exists) {

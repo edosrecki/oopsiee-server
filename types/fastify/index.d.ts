@@ -8,7 +8,7 @@ import { DefaultQuery } from 'fastify'
 import { DefaultParams } from 'fastify'
 import { DefaultHeaders } from 'fastify'
 import { DefaultBody } from 'fastify'
-import { AwilixContainer } from 'awilix'
+import { Container } from '../../src/container'
 import { Context } from '../../src/procedures/types'
 
 declare module "fastify" {
@@ -27,7 +27,7 @@ declare module "fastify" {
     Headers = DefaultHeaders,
     Body = DefaultBody
     > {
-    container: AwilixContainer
+    container: Container
     context: Context
   }
 

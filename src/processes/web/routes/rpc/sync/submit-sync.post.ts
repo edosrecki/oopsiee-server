@@ -3,7 +3,7 @@ import { SubmitSyncRequest } from '../types'
 import { Procedure } from '../../../../../procedures/types'
 
 export async function submitSyncHandler (request: SubmitSyncRequest, reply: FastifyHttpResponse) {
-  const resolutionPath = `procedure.${request.body.procedure}`
+  const resolutionPath = `procedures.${request.body.procedure}`
 
   const exists = request.container.has(resolutionPath)
   if (!exists) {

@@ -1,11 +1,13 @@
-import { createContainer, asFunction, asValue } from 'awilix'
+import { AwilixContainer, createContainer, asFunction, asValue } from 'awilix'
 import { each } from 'lodash'
 import { config } from './config'
 import { buildLogger } from './lib/logger'
 import { buildQueue } from './lib/queue'
 import { procedures } from './procedures'
 
-const container = createContainer()
+export type Container = AwilixContainer
+
+export const container = createContainer()
 
 container.register({
   config: asValue(config),
@@ -14,7 +16,5 @@ container.register({
 })
 
 each(procedures, (func, name) => {
-  container.register(`procedure.${name}`, asFunction(func).scoped())
+  container.register(`procedures.${name}`, asFunction(func).scoped())
 })
-
-export { container }
