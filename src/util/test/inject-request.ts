@@ -1,8 +1,12 @@
 import { FastifyInstance, HTTPInjectOptions, HTTPInjectResponse } from 'fastify'
 import { authorizationHeader } from './authorization-header'
 
-export const injectAuthRequest = (server: FastifyInstance, opts: HTTPInjectOptions): Promise<HTTPInjectResponse> =>
-  server.inject({
+interface FastifyInjectResponse extends HTTPInjectResponse {
+  payload: any
+}
+
+export const injectAuthRequest = (server: FastifyInstance, opts: HTTPInjectOptions): Promise<FastifyInjectResponse> =>
+  injectRequest(server,{
     ...opts,
     headers: {
       ...opts.headers,
@@ -10,3 +14,11 @@ export const injectAuthRequest = (server: FastifyInstance, opts: HTTPInjectOptio
     }
   })
 
+export const injectRequest = async (server: FastifyInstance, opts: HTTPInjectOptions): Promise<FastifyInjectResponse> => {
+  const response = await server.inject(opts)
+
+  return {
+    ...response,
+    payload: JSON.parse(response.payload)
+  }
+}
