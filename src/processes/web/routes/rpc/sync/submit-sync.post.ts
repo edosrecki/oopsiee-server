@@ -7,7 +7,7 @@ export async function submitSyncHandler (request: SubmitSyncRequest, reply: Fast
 
   const exists = request.container.has(resolutionPath)
   if (!exists) {
-    reply.status(400).send({ message: 'Procedure not found.' })
+    return reply.status(404).send({ message: 'Procedure not found.' })
   }
 
   const procedure = request.container.resolve<Procedure>(resolutionPath)
