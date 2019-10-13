@@ -17,6 +17,13 @@ describe('routes.rpc.fetch-async', () => {
     return container
   }
 
+  const buildAndRegisterQueue = (container: Container, job: any) => {
+    const queue = { getJob: jest.fn() }
+    queue.getJob.mockResolvedValueOnce(job)
+    container.register('queue', asValue(queue))
+    return queue
+  }
+
   // ~~~~
 
   it(`return '401 Unauthorized' if user is not authenticated`, async () => {
@@ -31,10 +38,7 @@ describe('routes.rpc.fetch-async', () => {
   it(`return '404 Not Found' if job does not exist`, async () => {
     const container = buildContainer()
     const server = buildServer(container)
-
-    const queue = { getJob: jest.fn() }
-    queue.getJob.mockResolvedValueOnce(null)
-    container.register('queue', asValue(queue))
+    const queue = buildAndRegisterQueue(container, null)
 
     const response = await injectAuthRequest(server, request)
 
@@ -44,13 +48,10 @@ describe('routes.rpc.fetch-async', () => {
   })
 
   it('return job result', async () => {
+    const job = { data: { result: { foo: 'bar' } } }
     const container = buildContainer()
     const server = buildServer(container)
-
-    const job = { data: { result: { foo: 'bar' } } }
-    const queue = { getJob: jest.fn() }
-    queue.getJob.mockResolvedValueOnce(job)
-    container.register('queue', asValue(queue))
+    buildAndRegisterQueue(container, job)
 
     const response = await injectAuthRequest(server, request)
 
