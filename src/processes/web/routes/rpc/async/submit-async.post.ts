@@ -3,9 +3,11 @@ import { SubmitAsyncRequest } from '../types'
 import { Queue } from '../../../../../lib/queue'
 
 export async function submitAsyncHandler (request: SubmitAsyncRequest, reply: FastifyHttpResponse) {
-  const exists = request.container.has(`procedures.${request.body.procedure}`)
+  const procedureName = request.body.procedure
+
+  const exists = request.container.has(`procedures.${procedureName}`)
   if (!exists) {
-    reply.status(400).send({ message: 'Procedure not found.' })
+    return reply.status(404).send({ message: `Procedure '${procedureName}' not found.` })
   }
 
   const queue = request.container.resolve<Queue>('queue')
