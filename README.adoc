@@ -4,7 +4,7 @@
 
 = oopsiee-server
 
-image:https://img.shields.io/github/package-json/v/edosrecki/oopsiee-server?color=blue&label=oopsiee-server[oopsiee-server version]
+image:https://img.shields.io/github/package-json/v/edosrecki/oopsiee-server?color=blue&label=oopsiee-server["oopsiee-server version", link="https://oopsiee.herokuapp.com"]
 image:https://travis-ci.org/edosrecki/oopsiee-server.svg?branch=master["Build Status", link="https://travis-ci.org/edosrecki/oopsiee-server"]
 
 A backend for link:https://github.com/edosrecki/oopsiee[oOPSiee CLI] tool.
@@ -33,7 +33,7 @@ procedure to call. Procedures are called through HTTP API.
 See example:
 
 * Procedure implementation: link:src/procedures/example[`src/procedures/example`]
-* Command definition: link:src/commands.yml[`src/commands.yml`]
+* Command definition: link:src/commands/commands.yml[`src/commands/commands.yml`]
 
 == Authentication
 oOPSiee CLI uses your private key to sign a JWT token containing your username,
