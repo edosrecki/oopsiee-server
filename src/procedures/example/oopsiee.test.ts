@@ -1,9 +1,14 @@
 import { oopsiee } from './oopsiee'
-import { buildLogger } from '../../util/test-mocks'
+import { Logger } from '../../lib/logger'
 
 describe('procedures.example.oopsiee', () => {
   const params = { key: 'value' }
   const context = { user: 'user' }
+
+  const buildLogger = (): Logger => {
+    const logger = { info: jest.fn() }
+    return logger as any
+  }
 
   // ~~~~
 
