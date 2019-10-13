@@ -23,7 +23,7 @@
     "start:web:dev": "nodemon -e ts -r ts-node/register src/processes/web",
     "start:web:prod": "node dist/processes/web",
     "pretest": "npm run lint",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "test:watch": "jest --watch",
     "prettify-package-json": "prettier-package-json --write"
   },
