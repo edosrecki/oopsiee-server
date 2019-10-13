@@ -1,5 +1,5 @@
 import { FastifyInstance, HTTPInjectOptions, HTTPInjectResponse } from 'fastify'
-import { authorizationHeader } from './authorization-header'
+import { buildAuthorizationHeader } from './build-authorization-header'
 
 interface FastifyInjectResponse extends HTTPInjectResponse {
   payload: any
@@ -10,7 +10,7 @@ export const injectAuthRequest = (server: FastifyInstance, opts: HTTPInjectOptio
     ...opts,
     headers: {
       ...opts.headers,
-      Authorization: authorizationHeader
+      Authorization: buildAuthorizationHeader({ user: 'test' })
     }
   })
 
