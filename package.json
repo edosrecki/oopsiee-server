@@ -78,6 +78,9 @@
     }
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "modulePathIgnorePatterns": [
+      "dist"
+    ]
   }
 }
