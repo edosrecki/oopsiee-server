@@ -68,7 +68,7 @@
     "operations"
   ],
   "engines": {
-    "node": "~12.11"
+    "node": "~12.12"
   },
   "husky": {
     "hooks": {

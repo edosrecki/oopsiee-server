@@ -4,6 +4,8 @@
 
 = oopsiee-server
 
+image:https://travis-ci.org/edosrecki/oopsiee-server.svg?branch=master["Build Status", link="https://travis-ci.org/edosrecki/oopsiee-server"]
+
 A backend for link:https://github.com/edosrecki/oopsiee[oOPSiee CLI] tool.
 
 * Supports **synchronous** commands
