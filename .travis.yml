@@ -1,9 +1,9 @@
 language: node_js
 script:
-- npm test
-- npm run build
-- rm -f .npmrc
-- git add --force dist
+  - npm test -- --coverage
+  - npx codecov
+  - npm run build
+  - git add --force dist
 deploy:
   provider: heroku
   app: oopsiee

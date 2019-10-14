@@ -4,8 +4,9 @@
 
 = oopsiee-server
 
-image:https://img.shields.io/github/package-json/v/edosrecki/oopsiee-server?color=blue&label=oopsiee-server["oopsiee-server version", link="https://oopsiee.herokuapp.com"]
+image:https://img.shields.io/github/package-json/v/edosrecki/oopsiee-server?color=blue&label=oopsiee-server["oOPSiee Server Version", link="https://oopsiee.herokuapp.com"]
 image:https://travis-ci.org/edosrecki/oopsiee-server.svg?branch=master["Build Status", link="https://travis-ci.org/edosrecki/oopsiee-server"]
+image:https://img.shields.io/codecov/c/github/edosrecki/oopsiee-server["Code Coverage", link="https://codecov.io/gh/edosrecki/oopsiee-server"]
 
 A backend for link:https://github.com/edosrecki/oopsiee[oOPSiee CLI] tool.
 
