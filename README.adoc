@@ -16,6 +16,7 @@ A backend for link:https://github.com/edosrecki/oopsiee[oOPSiee CLI] tool.
 * Ready for **Docker**
 * Uses **private/public key** authentication
 * Written in **TypeScript**
+* 100% **test** coverage
 * Has proper **dependency injection**
 * Contains **examples**
 
