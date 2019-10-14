@@ -11,6 +11,7 @@ import { rpcRoutes } from './routes/rpc'
 
 export const buildServer = (container: Container) => {
   const config = container.resolve<Config>('config')
+  const keys = container.resolve('auth.keys')
 
   const server = fastify({
     logger: config.logging
@@ -34,7 +35,7 @@ export const buildServer = (container: Container) => {
   /*
    * JWT Auth
    */
-  server.register(jwtAuth)
+  server.register(jwtAuth(keys))
 
   server.register((instance, options, next) => {
     instance.addHook('onRequest', server.jwtAuth)

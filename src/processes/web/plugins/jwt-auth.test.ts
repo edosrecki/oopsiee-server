@@ -1,8 +1,8 @@
-import fastify from 'fastify'
-import { HTTPInjectOptions } from 'fastify'
+import fastify, { HTTPInjectOptions } from 'fastify'
 import { jwtAuth } from './jwt-auth'
 import { injectRequest } from '../../../util/test/inject-request'
 import { buildAuthorizationHeader } from '../../../util/test/build-authorization-header'
+import { authKeys } from '../../../util/test/auth-keys'
 
 describe('web.plugins.jwt-auth', () => {
 
@@ -12,7 +12,7 @@ describe('web.plugins.jwt-auth', () => {
   }
 
   const server = fastify()
-  server.register(jwtAuth)
+  server.register(jwtAuth(authKeys))
   server.register((instance, opts, next) => {
     instance.addHook('onRequest', instance.jwtAuth)
     instance.get('/', (request, reply) => {

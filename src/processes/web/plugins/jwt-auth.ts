@@ -2,13 +2,8 @@ import { FastifyHttpRequest, FastifyHttpResponse, FastifyNext } from 'fastify'
 import { decode, verify } from 'jsonwebtoken'
 import { get, split } from 'lodash'
 import fp from 'fastify-plugin'
-import path from 'path'
-import { readDirectory } from '../../../util/read-directory'
 
-export const jwtAuth = fp(async (instance, options, next) => {
-  const keysPath = path.join(__dirname, '../../../../keys')
-  const keys = await readDirectory(keysPath)
-
+export const jwtAuth = (keys: any) => fp(async (instance, options, next) => {
   instance.decorate('jwtAuth', (request: FastifyHttpRequest, reply: FastifyHttpResponse, next: FastifyNext) => {
     try {
       const token = extractToken(request)

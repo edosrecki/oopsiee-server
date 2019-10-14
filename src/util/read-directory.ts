@@ -1,20 +1,20 @@
-import { promises as fs } from 'fs'
-import * as path from 'path'
+import fs from 'fs'
+import path from 'path'
 
 interface Directory {
   [fileName: string]: Buffer
 }
 
-export const readDirectory = async (dir: string): Promise<Directory> => {
-  const entries = await fs.readdir(dir)
+export const readDirectory = (dir: string): Directory => {
+  const entries = fs.readdirSync(dir)
 
   const result: Directory = {}
   for (const entry of entries) {
     const entryPath = path.join(dir, entry)
-    const stats = await fs.stat(entryPath)
+    const stats = fs.statSync(entryPath)
 
     if (stats.isFile()) {
-      result[entry] = await fs.readFile(entryPath)
+      result[entry] = fs.readFileSync(entryPath)
     }
   }
 

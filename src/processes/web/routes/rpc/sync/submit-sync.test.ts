@@ -1,9 +1,9 @@
-import { asValue, createContainer } from 'awilix'
+import { asValue } from 'awilix'
 import { HTTPInjectOptions } from 'fastify'
 import { buildServer } from '../../../build-server'
 import { injectAuthRequest, injectRequest } from '../../../../../util/test/inject-request'
 import { Procedure } from '../../../../../procedures/types'
-import { Container } from '../../../../../container'
+import { buildContainer } from '../../../../../util/test/build-container'
 
 describe('routes.rpc.submit-sync', () => {
 
@@ -16,12 +16,6 @@ describe('routes.rpc.submit-sync', () => {
         foo: 'bar'
       }
     }
-  }
-
-  const buildContainer = (): Container => {
-    const container = createContainer()
-    container.register('config', asValue({}))
-    return container
   }
 
   // ~~~~
