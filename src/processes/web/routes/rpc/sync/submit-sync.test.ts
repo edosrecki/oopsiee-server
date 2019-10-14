@@ -26,7 +26,7 @@ describe('routes.rpc.submit-sync', () => {
 
   // ~~~~
 
-  it(`return '401 Unauthorized' if user is not authenticated`, async () => {
+  test(`return '401 Unauthorized' if user is not authenticated`, async () => {
     const container = buildContainer()
     const server = buildServer(container)
 
@@ -35,7 +35,7 @@ describe('routes.rpc.submit-sync', () => {
     expect(response.statusCode).toBe(401)
   })
 
-  it(`return '404 Not Found' if procedure does not exist`, async () => {
+  test(`return '404 Not Found' if procedure does not exist`, async () => {
     const container = buildContainer()
     const server = buildServer(container)
 
@@ -45,7 +45,7 @@ describe('routes.rpc.submit-sync', () => {
     expect(response.payload.message).toBe(`Procedure 'test.oopsiee' not found.`)
   })
 
-  it(`return '500 Internal Server Error' if procedure throws an error`, async () => {
+  test(`return '500 Internal Server Error' if procedure throws an error`, async () => {
     const container = buildContainer()
     const server = buildServer(container)
 
@@ -58,7 +58,7 @@ describe('routes.rpc.submit-sync', () => {
     expect(response.payload.message).toBe("test-error")
   })
 
-  it('call procedure and return its result', async () => {
+  test('call procedure and return its result', async () => {
     const container = buildContainer()
     const server = buildServer(container)
 

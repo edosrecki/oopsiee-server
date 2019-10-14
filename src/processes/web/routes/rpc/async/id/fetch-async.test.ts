@@ -26,7 +26,7 @@ describe('routes.rpc.fetch-async', () => {
 
   // ~~~~
 
-  it(`return '401 Unauthorized' if user is not authenticated`, async () => {
+  test(`return '401 Unauthorized' if user is not authenticated`, async () => {
     const container = buildContainer()
     const server = buildServer(container)
 
@@ -35,7 +35,7 @@ describe('routes.rpc.fetch-async', () => {
     expect(response.statusCode).toBe(401)
   })
 
-  it(`return '404 Not Found' if job does not exist`, async () => {
+  test(`return '404 Not Found' if job does not exist`, async () => {
     const container = buildContainer()
     const server = buildServer(container)
     const queue = buildAndRegisterQueue(container, null)
@@ -47,7 +47,7 @@ describe('routes.rpc.fetch-async', () => {
     expect(queue.getJob).toBeCalledWith('1')
   })
 
-  it('return job result', async () => {
+  test('return job result', async () => {
     const job = { data: { result: { foo: 'bar' } } }
     const container = buildContainer()
     const server = buildServer(container)
