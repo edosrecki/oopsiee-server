@@ -1,11 +1,11 @@
-import { config as loadEnv } from 'dotenv'
-import { getNumber, getString } from '@emartech/config-tools'
+import { cleanEnv, num, str } from 'envalid'
 
-loadEnv()
-
-const env = getString('NODE_ENV')
-const isTest = env === 'test'
-const isProd = env === 'production'
+const env = cleanEnv(process.env, {
+  PORT: num({ default: 8000 }),
+  LOG_LEVEL: str({ default: 'info' }),
+  REDIS_URL: str(),
+  REDIS_JOBS_QUEUE: str({ default: 'oopsiee-jobs' })
+})
 
 interface Config {
   port: number
@@ -23,21 +23,21 @@ interface Config {
 }
 
 const config: Config = {
-  port: getNumber('PORT', 8000),
+  port: env.PORT,
   address: '0.0.0.0',
   logging: {
-    level: getString('LOG_LEVEL', 'info'),
-    useLevelLabels: !isProd,
-    prettyPrint: isProd ? false : {
+    level: env.LOG_LEVEL,
+    useLevelLabels: !env.isProduction,
+    prettyPrint: env.isProduction ? false : {
       translateTime: 'HH:MM:ss.l',
       colorize: true,
       ignore: 'hostname,pid'
     },
-    enabled: !isTest
+    enabled: !env.isTest
   },
   redis: {
-    url: getString('REDIS_URL'),
-    jobsQueue: getString('REDIS_JOBS_QUEUE', 'oopsiee-jobs')
+    url: env.REDIS_URL,
+    jobsQueue: env.REDIS_JOBS_QUEUE
   }
 }
 

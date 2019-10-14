@@ -2,10 +2,7 @@ version: '3'
 
 services:
   web:
-    build:
-      context: .
-      args:
-        NPM_TOKEN: $NPM_TOKEN
+    build: .
     env_file:
       - .env
     expose:
@@ -18,10 +15,7 @@ services:
       - oopsiee
 
   job-processor:
-    build:
-      context: .
-      args:
-        NPM_TOKEN: $NPM_TOKEN
+    build: .
     env_file:
       - .env
     depends_on:

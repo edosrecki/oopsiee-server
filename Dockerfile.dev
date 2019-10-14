@@ -2,8 +2,6 @@ FROM node:12
 
 WORKDIR /oopsiee
 
-ARG NPM_TOKEN
-COPY .npmrc .npmrc
 COPY package*.json ./
 RUN npm install
 
