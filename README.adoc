@@ -96,5 +96,5 @@ npm run start:web:prod
 == Test
 ```shell
 npm test
-npm test:watch
+npm run test:watch
 ```
