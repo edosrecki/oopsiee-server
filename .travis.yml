@@ -1,31 +1,31 @@
 language: node_js
-env:
-  global:
-    - secure: AR3DrxxbcWheVRMVtYqW3sYf2LGsI9yKKCI10jkKPFt83PnDzfaw3QUzLxPXAb+xh4Nup8qWVZsZpuydPkhn+I+UwYt5EkAT+zx6Ktx7sql2c9iVNfshPSuDotOQv/23G9TopYTZeIx7T71eACJWzZBmjcOf0yqiUpcgoT1Uebr34u/vjQblLhMBCV+FlfP3WS3E2agjD2bguoPT+I+WxIjORx8dtlRNYzsDU5bPwrwywNeUDDTRPCeEcqpcXiz1AmSHD2w9hJmokZ6cH053Fauks5+AtfLcaXJ8MTi2S/ovGN1Q6KpkZf2T9UhokoNyrP2lI6nXj2zgvbOz4yq8ABBf4N2G4kHqh5dGePx48i93ED3wo8oTq6OJ/F1IMrvoHQUX8ySpfaFo4YrqzPl4jqFqnpgIz8/kXYH9JDeOkpvbR/Ntw6wh/fOVzNsbWE/BkPmhaayCipvxSwdByyovt0pT/NfdFzBKSl48OUu00/R0qveL1LEFRwMM6AsH3+KxXNuR75Ckfa8FTq14wi1E6I0W0LB5jnfMTc5B+xA+Q7gyGTtEgOZ9N/af9h/8Htz6UsJ2/8tXuZNociPOty9yxTOpJct5AuALmeWqN197MQ7C5H0eZaynVKPmeGxkGDFrdBEHBUpw8FyaVljnwGfbk60Zso+q0E9M9vrvfXvz0QM=
 jobs:
   include:
-    - stage: test
-      script:
-        - npm test -- --coverage
-        - npx codecov
-    - stage: release
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script: npx semantic-release
-        on:
-          all_branches: true
-          condition: $TRAVIS_BRANCH =~ ^(release|v)
-    - stage: build
-      script:
-        - npm run build
-        - git add --force dist
-    - stage: deploy
-      deploy:
-        provider: heroku
-        app: oopsiee
-        api_key:
-          secure: PGvqoUVSmCE6KhvHghi7Z5sZCe2IdoIMw/wYxhcs8pl5oqyMe0kcXJhLUwhlxz8b21C70I0Nmw0UBZYA7YMyIqhgHnoF7v8sNQ6VQiLtm0v5CVRxwlm0X8rumnUPa23OGAwvw2Xkbbhha5LXsBtdPlrhpru3hWbTfNclrin3dQu7g3plbc4RCd8CSYcSjgkGWrp0mv5vcclTXdBPiHp+Bv56ADZqmSABhsDjBf0tK3XBh1rDNvf12SMbJGI2PWp9AOklu+FT/HpNkXjWn8CwqiLxAsZ8moAZMoihekXhQ/fyWdftTOZNTwk7GsZHzS17I/3/AuUEzV0KYcL0WRY/l4TyuhfUlmLG6rtZqp8ZAOfbq+5CMrDE5HoLm0dAjNzXg0uOZ17aOZ2uMJsGPGbSV1itoYyPrKeYLYHEE3uSWa+uiikRsXA4v6Q2O4q2nliV9zrtgiREMPClVbJKcN4PdtPcFL8MPelR0IBUrs6I74Y7NKORBuyk/Kho6L0hzVhRdrNEsXkWGLmEvhQ/vWHAm0cRwQD0fIhiCcFC5XvSHm/2y1s6u+ni/UqM7ggZradBGlThDSHLbmUYFK7XSY3zTm3S82acsdOkhhuCxkMk2SXSyoUioccJ/Igwi7PrP5X30+ujf1uJe5PRpDrSndAAB137yacQuBokpxJ6xE/d5y8=
-        skip_cleanup: true
-        on:
-          branch: release
+  - stage: test
+    script:
+    - npm test -- --coverage
+    - npx codecov
+  - stage: release
+    deploy:
+      provider: script
+      skip_cleanup: true
+      script: npx semantic-release
+      on:
+        all_branches: true
+        condition: "$TRAVIS_BRANCH =~ ^(release|v)"
+  - stage: build
+    script:
+    - npm run build
+    - git add --force dist
+  - stage: deploy
+    deploy:
+      provider: heroku
+      app: oopsiee
+      api_key:
+        secure: PGvqoUVSmCE6KhvHghi7Z5sZCe2IdoIMw/wYxhcs8pl5oqyMe0kcXJhLUwhlxz8b21C70I0Nmw0UBZYA7YMyIqhgHnoF7v8sNQ6VQiLtm0v5CVRxwlm0X8rumnUPa23OGAwvw2Xkbbhha5LXsBtdPlrhpru3hWbTfNclrin3dQu7g3plbc4RCd8CSYcSjgkGWrp0mv5vcclTXdBPiHp+Bv56ADZqmSABhsDjBf0tK3XBh1rDNvf12SMbJGI2PWp9AOklu+FT/HpNkXjWn8CwqiLxAsZ8moAZMoihekXhQ/fyWdftTOZNTwk7GsZHzS17I/3/AuUEzV0KYcL0WRY/l4TyuhfUlmLG6rtZqp8ZAOfbq+5CMrDE5HoLm0dAjNzXg0uOZ17aOZ2uMJsGPGbSV1itoYyPrKeYLYHEE3uSWa+uiikRsXA4v6Q2O4q2nliV9zrtgiREMPClVbJKcN4PdtPcFL8MPelR0IBUrs6I74Y7NKORBuyk/Kho6L0hzVhRdrNEsXkWGLmEvhQ/vWHAm0cRwQD0fIhiCcFC5XvSHm/2y1s6u+ni/UqM7ggZradBGlThDSHLbmUYFK7XSY3zTm3S82acsdOkhhuCxkMk2SXSyoUioccJ/Igwi7PrP5X30+ujf1uJe5PRpDrSndAAB137yacQuBokpxJ6xE/d5y8=
+      skip_cleanup: true
+      on:
+        branch: release
+env:
+  global:
+    secure: U/oqn0L/6+EcxPUYgDHFTlBLwXGwCSMepVBoHOdDqe6HJDcghYOrRgktaJGOpgFj7cEV7buI20jFnFLUT6qZzFdwsVe/MvtwOvCyvvaMeUpF2LwUsGP2BIqDrjk9FTmocoGr+u4CW5AiYJGLFg2pTsJLLFwvfFPImgTjlk2PisKlKZI50tfFKGn0WISE61McCOKche/F3R4yENMm1PUtHscAfmr5EksSRT51I9D9JZ3ljzy3wQrpwAzB1ByWCfpZFmm9JREMF+DIRrmdg2TJxKBhoEK9ZsgoHEEc6iKlzfyPGclzbuTGeKMq35DOSUNMZmzM0Gw8c5HffG80JxUU1fLXda+z/rGJjo2qj28sb7x+aklHhGUrirVZN0FoForIiMTyiNIcfNJXcoLq2NWPcPJOt+Fip5/fy83KiwJruQd8HOWfdcq2smVvT+rZMy01x8I2gdjcRzKWg9E73LKXWmPo8bbgQrkrKgg+1vCQJmRCzHUuVZjzHFjW9r6EJ6zpoWqV/a7dYEi4/qS84ITZFBYvdZMWBJ/6n1rTrdgjSbWK94vMD40rfOZ775PbrY5xidXpA+O69Anht8LpNlyhSNGX1y4z7RlNzryK9axwwt5fRmIuuMpAZO9WWZqngcGwi26fnChZROrtnAckWNT4cgzzErtVCoQTNrqpbJd7mOc=
