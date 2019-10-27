@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/edosrecki/oopsiee-server/compare/v1.0.0...v1.0.1) (2019-10-27)
+
+
+### Bug Fixes
+
+* **commands:** rename 'action' property to 'procedure' ([bc9f538](https://github.com/edosrecki/oopsiee-server/commit/bc9f538c1440eb8a3a82cea68a4489a3dd4063ab))
+
 # 1.0.0 (2019-10-27)
 
 
