@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "oopsiee-server",
   "description": "Backend for oOPSiee CLI tool.",
   "license": "UNLICENSED",
