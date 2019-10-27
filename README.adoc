@@ -20,6 +20,7 @@ A backend for link:https://github.com/edosrecki/oopsiee-cli[oOPSiee CLI] tool.
 * Written in **TypeScript**
 * 100% **test** coverage
 * Has proper **dependency injection**
+* Semi-automatic **dependency updates** with Dependabot
 * Contains **examples**
 
 ---
