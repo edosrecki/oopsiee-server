@@ -7,6 +7,7 @@
 image:https://img.shields.io/github/package-json/v/edosrecki/oopsiee-server/release?color=blue&label=oopsiee-server["oOPSiee Server Version", link="https://oopsiee.herokuapp.com"]
 image:https://travis-ci.org/edosrecki/oopsiee-server.svg?branch=master["Build Status", link="https://travis-ci.org/edosrecki/oopsiee-server"]
 image:https://img.shields.io/codecov/c/github/edosrecki/oopsiee-server["Code Coverage", link="https://codecov.io/gh/edosrecki/oopsiee-server"]
+image:https://img.shields.io/david/edosrecki/oopsiee-server["Dependencies Status"]
 
 A backend for link:https://github.com/edosrecki/oopsiee-cli[oOPSiee CLI] tool.
 
