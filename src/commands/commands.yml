@@ -2,9 +2,9 @@
 example:
   # Command to run in CLI.
   - command: oopsiee
-    # Action to execute on the server.
-    action: example.oopsiee
-    # Is command synchronous or asynchronous by default? (default = false)
+    # Procedure to execute on the server.
+    procedure: example.oopsiee
+    # Is command synchronous or asynchronous by default (default = false)?
     async: false
     # Optional alias.
     alias: ops
