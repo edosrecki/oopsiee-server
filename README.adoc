@@ -9,7 +9,11 @@ image:https://travis-ci.org/edosrecki/oopsiee-server.svg?branch=master["Build St
 image:https://img.shields.io/codecov/c/github/edosrecki/oopsiee-server["Code Coverage", link="https://codecov.io/gh/edosrecki/oopsiee-server"]
 image:https://img.shields.io/david/edosrecki/oopsiee-server["Dependencies Status"]
 
-A backend for link:https://github.com/edosrecki/oopsiee-cli[oOPSiee CLI] tool.
+An HTTP API service that simplifies **daily operations** and **on-call** duty by letting you run repeated and cumbersome
+tasks in no time!
+
+Can be accessed with link:https://github.com/edosrecki/oopsiee-cli[**oOPSiee CLI**] tool, Postman, Paw, httpie, or any
+other client of your choosing which speaks HTTP.
 
 * Supports **synchronous** commands
 * Supports **asynchronous** jobs
@@ -96,5 +100,5 @@ npm run start:web:prod
 == Test
 ```shell
 npm test
-npm test:watch
+npm run test:watch
 ```
