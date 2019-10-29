@@ -102,3 +102,7 @@ npm run start:web:prod
 npm test
 npm run test:watch
 ```
+
+== Deploy
+To deploy a new version of `oopsiee-server`, merge `master` branch into `release` branch.
+New version will automatically get released by CI system.

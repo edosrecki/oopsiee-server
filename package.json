@@ -37,11 +37,11 @@
     "fastify-plugin": "^1.6.0",
     "fastify-sensible": "^2.1.1",
     "fastify-static": "^2.5.0",
-    "flat": "^4.1.0",
+    "flat": "^5.0.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "pino": "^5.13.5",
-    "pino-pretty": "^3.2.1"
+    "pino-pretty": "^3.2.2"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.5",
@@ -49,16 +49,16 @@
     "@types/bull": "^3.10.5",
     "@types/flat": "0.0.28",
     "@types/glob": "^7.1.1",
-    "@types/jest": "^24.0.18",
-    "@types/jsonwebtoken": "^8.3.4",
+    "@types/jest": "^24.0.20",
+    "@types/jsonwebtoken": "^8.3.5",
     "@types/lodash": "^4.14.144",
     "@types/node": "^12.11.7",
-    "@types/pino": "^5.8.10",
+    "@types/pino": "^5.8.12",
     "codecov": "^3.6.1",
     "copyfiles": "^2.1.1",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
-    "nodemon": "^1.19.3",
+    "nodemon": "^1.19.4",
     "prettier-package-json": "^2.1.0",
     "rimraf": "^3.0.0",
     "semantic-release": "^15.13.28",
@@ -93,7 +93,8 @@
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       "@semantic-release/npm",
-      "@semantic-release/git"
+      "@semantic-release/git",
+      "@semantic-release/github"
     ]
   }
 }
