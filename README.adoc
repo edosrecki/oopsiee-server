@@ -53,7 +53,7 @@ Add your public key in `PEM` format to link:keys/[`keys/`] directory.
 File name must only contain your username without any file extensions.
 
 **Hint**: To convert your RSA public key to `PEM` format, run:
-`ssh-keygen -f id_rsa.pub -m 'PEM' -e > public.pem`.
+`ssh-keygen -f id_rsa.pub -m 'PEM' -e > <USERNAME>`
 
 == Run
 === Development mode
