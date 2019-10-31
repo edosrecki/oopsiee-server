@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/edosrecki/oopsiee-server/compare/v1.0.1...v1.1.0) (2019-10-31)
+
+
+### Features
+
+* add epmartini ([#14](https://github.com/edosrecki/oopsiee-server/issues/14)) ([9a51d32](https://github.com/edosrecki/oopsiee-server/commit/9a51d3232c0f4f29e8be48ab86fbdf9eadb1a3dd))
+
 ## [1.0.1](https://github.com/edosrecki/oopsiee-server/compare/v1.0.0...v1.0.1) (2019-10-27)
 
 
