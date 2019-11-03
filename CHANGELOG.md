@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/edosrecki/oopsiee-server/compare/v1.1.0...v1.2.0) (2019-11-03)
+
+
+### Features
+
+* **auth:** add edosrecki-encrypted ([b6925c9](https://github.com/edosrecki/oopsiee-server/commit/b6925c95b5e5234802b790da1058888403a82e03))
+
 # [1.1.0](https://github.com/edosrecki/oopsiee-server/compare/v1.0.1...v1.1.0) (2019-10-31)
 
 
