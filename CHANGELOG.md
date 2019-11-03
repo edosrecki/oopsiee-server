@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/edosrecki/oopsiee-server/compare/v1.2.0...v1.2.1) (2019-11-03)
+
+
+### Bug Fixes
+
+* **auth:** fix public key for edosrecki-encrypted ([ae5e17e](https://github.com/edosrecki/oopsiee-server/commit/ae5e17e576b2078908ff0343e66522f7fef20535))
+
 # [1.2.0](https://github.com/edosrecki/oopsiee-server/compare/v1.1.0...v1.2.0) (2019-11-03)
 
 
