@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/edosrecki/oopsiee-server/compare/v1.2.1...v1.3.0) (2019-11-13)
+
+
+### Features
+
+* **auth:** Add ejgyurisan ([d299362](https://github.com/edosrecki/oopsiee-server/commit/d29936253e4ea250bf2caf5fb94677d2ddc660bd))
+
 ## [1.2.1](https://github.com/edosrecki/oopsiee-server/compare/v1.2.0...v1.2.1) (2019-11-03)
 
 
