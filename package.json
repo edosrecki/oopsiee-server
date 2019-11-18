@@ -46,7 +46,7 @@
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.5",
     "@semantic-release/git": "^7.0.18",
-    "@types/bull": "^3.10.5",
+    "@types/bull": "^3.10.6",
     "@types/flat": "0.0.28",
     "@types/glob": "^7.1.1",
     "@types/jest": "^24.0.23",
