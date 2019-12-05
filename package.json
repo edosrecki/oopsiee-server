@@ -30,7 +30,7 @@
     "prettify-package-json": "prettier-package-json --write"
   },
   "dependencies": {
-    "awilix": "^4.2.2",
+    "awilix": "^4.2.3",
     "bull": "^3.12.1",
     "envalid": "^5.0.0",
     "fastify": "^2.10.0",
