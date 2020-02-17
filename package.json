@@ -41,7 +41,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "pino": "^5.13.6",
-    "pino-pretty": "^3.4.0"
+    "pino-pretty": "^3.6.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.5",
