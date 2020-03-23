@@ -52,7 +52,7 @@
     "@types/jest": "^24.0.23",
     "@types/jsonwebtoken": "^8.3.5",
     "@types/lodash": "^4.14.149",
-    "@types/node": "^12.12.7",
+    "@types/node": "^13.9.3",
     "@types/pino": "^5.8.13",
     "codecov": "^3.6.1",
     "copyfiles": "^2.1.1",
