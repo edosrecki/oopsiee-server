@@ -6,7 +6,7 @@ interface FastifyInjectResponse extends HTTPInjectResponse {
 }
 
 export const injectAuthRequest = (server: FastifyInstance, opts: HTTPInjectOptions): Promise<FastifyInjectResponse> =>
-  injectRequest(server,{
+  injectRequest(server, {
     ...opts,
     headers: {
       ...opts.headers,
@@ -15,10 +15,8 @@ export const injectAuthRequest = (server: FastifyInstance, opts: HTTPInjectOptio
   })
 
 export const injectRequest = async (server: FastifyInstance, opts: HTTPInjectOptions): Promise<FastifyInjectResponse> => {
-  const response = await server.inject(opts)
+  const response: HTTPInjectResponse = await server.inject(opts)
 
-  return {
-    ...response,
-    payload: JSON.parse(response.payload)
-  }
+  response.payload = JSON.parse(response.payload)
+  return response
 }
