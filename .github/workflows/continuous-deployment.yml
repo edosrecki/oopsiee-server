@@ -1,0 +1,47 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - 'release'
+
+env:
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  test-build-deploy:
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        id: nvmrc
+        run: echo "::set-output name=node::$(cat .nvmrc)"
+
+      - name: Use Node.js ${{ steps.nvmrc.outputs.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ steps.nvmrc.outputs.node }}
+
+      - name: Test
+        run: |
+          npm install
+          npm test -- --coverage
+          npx codecov
+
+      - name: Create release
+        run: npx semantic-release
+
+      - name: Build
+        run: |
+          npm run build
+          git add --force dist
+          git commit -m 'Release'
+
+      - name: Deploy
+        uses: akhileshns/heroku-deploy@v3.0.4
+        with:
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: 'oopsiee'
