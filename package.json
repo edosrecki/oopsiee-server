@@ -18,7 +18,7 @@
     "build": "npm run build:yml && tsc",
     "build:yml": "copyfiles -u 1 src/**/*.yml dist",
     "clean": "rimraf dist",
-    "lint": "tslint -c tslint.json 'lib/**/*.ts'",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:fix": "npm run lint -- --fix",
     "start:job-processor:dev": "nodemon -e ts -r ts-node/register src/processes/workers/job-processor",
     "start:job-processor:prod": "node dist/processes/workers/job-processor",

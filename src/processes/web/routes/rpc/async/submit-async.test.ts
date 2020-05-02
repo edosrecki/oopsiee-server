@@ -1,8 +1,8 @@
 import { asValue } from 'awilix'
 import { HTTPInjectOptions } from 'fastify'
-import { buildServer } from '../../../build-server'
-import { injectAuthRequest, injectRequest } from '../../../../../util/test/inject-request'
 import { buildContainer } from '../../../../../util/test/build-container'
+import { injectAuthRequest, injectRequest } from '../../../../../util/test/inject-request'
+import { buildServer } from '../../../build-server'
 
 describe('routes.rpc.submit-async', () => {
 
@@ -12,9 +12,9 @@ describe('routes.rpc.submit-async', () => {
     payload: {
       procedure: 'test.oopsiee',
       params: {
-        foo: 'bar'
-      }
-    }
+        foo: 'bar',
+      },
+    },
   }
 
   // ~~~~
@@ -40,7 +40,7 @@ describe('routes.rpc.submit-async', () => {
 
   test('add a job to queue and return job ID', async () => {
     const container = buildContainer()
-    container.register('procedures.test.oopsiee', asValue(() => {}))
+    container.register('procedures.test.oopsiee', asValue(() => { /* noop */ }))
     const server = buildServer(container)
 
     const queue = { add: jest.fn() }
@@ -54,7 +54,7 @@ describe('routes.rpc.submit-async', () => {
     expect(queue.add).toBeCalledWith({
       procedure: 'test.oopsiee',
       params: { foo: 'bar' },
-      context: { user: 'test' }
+      context: { user: 'test' },
     })
   })
 })

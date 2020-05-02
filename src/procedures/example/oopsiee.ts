@@ -1,5 +1,5 @@
-import { ProcedureFactory } from '../types'
 import { Logger } from '../../lib/logger'
+import { ProcedureFactory } from '../types'
 
 interface Dependencies {
   logger: Logger
@@ -13,6 +13,6 @@ export const oopsiee: ProcedureFactory<Dependencies, Params> = ({ logger }) => a
   logger.info({ params }, 'procedures.example.oopsiee')
 
   return {
-    message: `Hello, ${context.user}!`
+    message: `Hello, ${context.user}!`,
   }
 }

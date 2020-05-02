@@ -1,18 +1,18 @@
-import { container } from '../../container'
-import { buildServer } from './build-server'
 import { Config } from '../../config'
+import { container } from '../../container'
 import { Logger } from '../../lib/logger'
+import { buildServer } from './build-server'
 
 const config = container.resolve<Config>('config')
 const logger = container.resolve<Logger>('logger')
 
 const server = buildServer(container)
 
-function shutdown () {
+function shutdown() {
   return server.close()
 }
 
-(async function main () {
+(async function main() {
   process.once('SIGTERM', shutdown)
   process.once('SIGINT', shutdown)
 

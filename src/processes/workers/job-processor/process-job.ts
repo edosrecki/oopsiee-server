@@ -1,6 +1,6 @@
+import { Container } from '../../../container'
 import { Job } from '../../../lib/queue'
 import { Procedure } from '../../../procedures/types'
-import { Container } from '../../../container'
 
 export const processJob = (container: Container) => async (job: Job) => {
   const resolutionPath = `procedures.${job.data.procedure}`
@@ -15,6 +15,6 @@ export const processJob = (container: Container) => async (job: Job) => {
 
   await job.update({
     ...job.data,
-    result
+    result,
   })
 }

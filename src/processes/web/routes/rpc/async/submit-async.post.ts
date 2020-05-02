@@ -1,8 +1,8 @@
 import { FastifyHttpResponse } from 'fastify'
-import { SubmitAsyncRequest } from '../types'
 import { Queue } from '../../../../../lib/queue'
+import { SubmitAsyncRequest } from '../types'
 
-export async function submitAsyncHandler (request: SubmitAsyncRequest, reply: FastifyHttpResponse) {
+export async function submitAsyncHandler(request: SubmitAsyncRequest, reply: FastifyHttpResponse) {
   const procedureName = request.body.procedure
 
   const exists = request.container.has(`procedures.${procedureName}`)

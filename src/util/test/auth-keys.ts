@@ -7,5 +7,5 @@ qX5s6ZmjQ7BcHEPKJVQaBlK+PSLsOyclo0i/pF1at9e9regDxoWHAgMBAAE=
 `)
 
 export const authKeys = {
-  test: key
+  test: key,
 }

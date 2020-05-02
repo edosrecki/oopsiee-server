@@ -1,12 +1,12 @@
 import fastify from 'fastify'
 import path from 'path'
-import { Container } from '../../container'
 import { Config } from '../../config'
+import { Container } from '../../container'
 import { jwtAuth } from './plugins/jwt-auth'
 
 // Routes
-import { healthcheckRoutes } from './routes/healthcheck'
 import { commandsRoutes } from './routes/commands'
+import { healthcheckRoutes } from './routes/healthcheck'
 import { rpcRoutes } from './routes/rpc'
 
 export const buildServer = (container: Container) => {
@@ -14,7 +14,7 @@ export const buildServer = (container: Container) => {
   const keys = container.resolve('auth.keys')
 
   const server = fastify({
-    logger: config.logging
+    logger: config.logging,
   })
 
   server.addHook('preHandler', (request, reply, next) => {
@@ -23,7 +23,7 @@ export const buildServer = (container: Container) => {
   })
 
   server.register(require('fastify-static'), {
-    root: path.join(__dirname, '../../commands')
+    root: path.join(__dirname, '../../commands'),
   })
 
   /*

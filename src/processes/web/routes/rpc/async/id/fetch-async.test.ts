@@ -1,9 +1,9 @@
 import { asValue } from 'awilix'
 import { HTTPInjectOptions } from 'fastify'
 import { Container } from '../../../../../../container'
-import { buildServer } from '../../../../build-server'
-import { injectAuthRequest, injectRequest } from '../../../../../../util/test/inject-request'
 import { buildContainer } from '../../../../../../util/test/build-container'
+import { injectAuthRequest, injectRequest } from '../../../../../../util/test/inject-request'
+import { buildServer } from '../../../../build-server'
 
 describe('routes.rpc.fetch-async', () => {
 

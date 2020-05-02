@@ -4,7 +4,7 @@ const env = cleanEnv(process.env, {
   PORT: num({ default: 8000 }),
   LOG_LEVEL: str({ default: 'info' }),
   REDIS_URL: str(),
-  REDIS_JOBS_QUEUE: str({ default: 'oopsiee-jobs' })
+  REDIS_JOBS_QUEUE: str({ default: 'oopsiee-jobs' }),
 })
 
 interface Config {
@@ -14,11 +14,11 @@ interface Config {
     level: string
     useLevelLabels: boolean
     prettyPrint: boolean | any
-    enabled: boolean
+    enabled: boolean,
   }
   redis: {
     url: string
-    jobsQueue: string
+    jobsQueue: string,
   }
 }
 
@@ -31,14 +31,14 @@ const config: Config = {
     prettyPrint: env.isProduction ? false : {
       translateTime: 'HH:MM:ss.l',
       colorize: true,
-      ignore: 'hostname,pid'
+      ignore: 'hostname,pid',
     },
-    enabled: !env.isTest
+    enabled: !env.isTest,
   },
   redis: {
     url: env.REDIS_URL,
-    jobsQueue: env.REDIS_JOBS_QUEUE
-  }
+    jobsQueue: env.REDIS_JOBS_QUEUE,
+  },
 }
 
 export { config, Config }

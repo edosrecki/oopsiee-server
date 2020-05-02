@@ -1,9 +1,9 @@
 import { FastifyHttpRequest, FastifyHttpResponse, FastifyNext } from 'fastify'
+import fp from 'fastify-plugin'
 import { decode, verify } from 'jsonwebtoken'
 import { get, split } from 'lodash'
-import fp from 'fastify-plugin'
 
-export const jwtAuth = (keys: any) => fp(async (instance, options, next) => {
+export const jwtAuth = (keys: any) => fp(async (instance) => {
   instance.decorate('jwtAuth', (request: FastifyHttpRequest, reply: FastifyHttpResponse, next: FastifyNext) => {
     try {
       const token = extractToken(request)
@@ -19,7 +19,7 @@ export const jwtAuth = (keys: any) => fp(async (instance, options, next) => {
   })
 })
 
-function extractToken (request: FastifyHttpRequest): string {
+function extractToken(request: FastifyHttpRequest): string {
   const header = request.headers.authorization
 
   if (!header) {
@@ -34,7 +34,7 @@ function extractToken (request: FastifyHttpRequest): string {
   return parts[1]
 }
 
-function decodeToken (keys: any, token: string) {
+function decodeToken(keys: any, token: string) {
   const data = decode(token)
   const user = get(data, 'user')
 
@@ -50,7 +50,7 @@ function decodeToken (keys: any, token: string) {
   return { user, key }
 }
 
-function validateToken (token: string, key: string) {
+function validateToken(token: string, key: string) {
   try {
     verify(token, key, { algorithms: ['RS256'] })
   } catch (error) {

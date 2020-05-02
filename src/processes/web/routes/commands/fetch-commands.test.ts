@@ -9,7 +9,7 @@ describe('routes.commands.fetch-commands', () => {
 
     const response = await server.inject({
       method: 'GET',
-      url: 'commands'
+      url: 'commands',
     })
 
     expect(response.headers['content-type']).toBe('text/yaml; charset=UTF-8')
