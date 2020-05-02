@@ -38,6 +38,9 @@ jobs:
       - name: Build
         run: |
           npm run build
+
+          git config user.name "Dinko Osrecki"
+          git config user.email "{{ secrets.HEROKU_EMAIL }}"
           git add --force dist
           git commit -m 'Release'
 
