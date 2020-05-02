@@ -1,14 +1,14 @@
 import fastify, { HTTPInjectOptions } from 'fastify'
-import { jwtAuth } from './jwt-auth'
-import { injectRequest } from '../../../util/test/inject-request'
-import { buildAuthorizationHeader } from '../../../util/test/build-authorization-header'
 import { authKeys } from '../../../util/test/auth-keys'
+import { buildAuthorizationHeader } from '../../../util/test/build-authorization-header'
+import { injectRequest } from '../../../util/test/inject-request'
+import { jwtAuth } from './jwt-auth'
 
 describe('web.plugins.jwt-auth', () => {
 
   const baseRequest: HTTPInjectOptions = {
     method: 'GET',
-    url: '/'
+    url: '/',
   }
 
   const server = fastify()
@@ -34,8 +34,8 @@ describe('web.plugins.jwt-auth', () => {
     const request = {
       ...baseRequest,
       headers: {
-        Authorization: 'I1NiIsInR5cCI6IkpXVCJ9eyJ1c2VyIjoiZ'
-      }
+        Authorization: 'I1NiIsInR5cCI6IkpXVCJ9eyJ1c2VyIjoiZ',
+      },
     }
 
     const response = await injectRequest(server, request)
@@ -48,8 +48,8 @@ describe('web.plugins.jwt-auth', () => {
     const request = {
       ...baseRequest,
       headers: {
-        Authorization: buildAuthorizationHeader({ invalid: 'payload' })
-      }
+        Authorization: buildAuthorizationHeader({ invalid: 'payload' }),
+      },
     }
 
     const response = await injectRequest(server, request)
@@ -62,8 +62,8 @@ describe('web.plugins.jwt-auth', () => {
     const request = {
       ...baseRequest,
       headers: {
-        Authorization: buildAuthorizationHeader({ user: 'pippo' })
-      }
+        Authorization: buildAuthorizationHeader({ user: 'pippo' }),
+      },
     }
 
     const response = await injectRequest(server, request)
@@ -77,8 +77,8 @@ describe('web.plugins.jwt-auth', () => {
     const request = {
       ...baseRequest,
       headers: {
-        Authorization: `${header}foo`
-      }
+        Authorization: `${header}foo`,
+      },
     }
 
     const response = await injectRequest(server, request)
@@ -92,8 +92,8 @@ describe('web.plugins.jwt-auth', () => {
     const request = {
       ...baseRequest,
       headers: {
-        Authorization: buildAuthorizationHeader(context)
-      }
+        Authorization: buildAuthorizationHeader(context),
+      },
     }
 
     const response = await injectRequest(server, request)

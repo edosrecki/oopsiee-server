@@ -1,8 +1,8 @@
 import { FastifyHttpResponse } from 'fastify'
-import { FetchAsyncRequest } from '../../types'
 import { Queue } from '../../../../../../lib/queue'
+import { FetchAsyncRequest } from '../../types'
 
-export async function fetchAsyncHandler (request: FetchAsyncRequest, reply: FastifyHttpResponse) {
+export async function fetchAsyncHandler(request: FetchAsyncRequest, reply: FastifyHttpResponse) {
   const queue = request.container.resolve<Queue>('queue')
   const job = await queue.getJob(request.params.id)
 

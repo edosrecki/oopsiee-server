@@ -1,9 +1,9 @@
 import { asValue } from 'awilix'
 import { HTTPInjectOptions } from 'fastify'
-import { buildServer } from '../../../build-server'
-import { injectAuthRequest, injectRequest } from '../../../../../util/test/inject-request'
 import { Procedure } from '../../../../../procedures/types'
 import { buildContainer } from '../../../../../util/test/build-container'
+import { injectAuthRequest, injectRequest } from '../../../../../util/test/inject-request'
+import { buildServer } from '../../../build-server'
 
 describe('routes.rpc.submit-sync', () => {
 
@@ -13,9 +13,9 @@ describe('routes.rpc.submit-sync', () => {
     payload: {
       procedure: 'test.oopsiee',
       params: {
-        foo: 'bar'
-      }
-    }
+        foo: 'bar',
+      },
+    },
   }
 
   // ~~~~
@@ -49,7 +49,7 @@ describe('routes.rpc.submit-sync', () => {
     const response = await injectAuthRequest(server, request)
 
     expect(response.statusCode).toBe(500)
-    expect(response.payload.message).toBe("test-error")
+    expect(response.payload.message).toBe('test-error')
   })
 
   test('call procedure and return its result', async () => {
@@ -64,7 +64,7 @@ describe('routes.rpc.submit-sync', () => {
     expect(response.statusCode).toBe(200)
     expect(response.payload).toEqual({
       params: { foo: 'bar' },
-      context: { user: 'test' }
+      context: { user: 'test' },
     })
   })
 })

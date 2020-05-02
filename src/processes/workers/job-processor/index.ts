@@ -3,7 +3,7 @@ import { Logger } from '../../../lib/logger'
 import { Queue } from '../../../lib/queue'
 import { processJob } from './process-job'
 
-(async function main () {
+(async function main() {
   const logger = container.resolve<Logger>('logger')
   const queue = container.resolve<Queue>('queue')
 

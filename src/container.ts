@@ -1,6 +1,6 @@
-import path from 'path'
-import { AwilixContainer, createContainer, asFunction, asValue } from 'awilix'
+import { asFunction, asValue, AwilixContainer, createContainer } from 'awilix'
 import { each } from 'lodash'
+import path from 'path'
 import { config } from './config'
 import { buildLogger } from './lib/logger'
 import { buildQueue } from './lib/queue'
@@ -14,7 +14,7 @@ export const container = createContainer()
 container.register({
   config: asValue(config),
   logger: asFunction(buildLogger).singleton(),
-  queue: asFunction(buildQueue).singleton()
+  queue: asFunction(buildQueue).singleton(),
 })
 
 each(procedures, (func, name) => {

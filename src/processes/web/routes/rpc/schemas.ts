@@ -3,11 +3,11 @@ export const submitSyncSchema = {
     type: 'object',
     properties: {
       procedure: { type: 'string' },
-      params: { type: 'object' }
+      params: { type: 'object' },
     },
     required: ['procedure'],
-    additionalProperties: false
-  }
+    additionalProperties: false,
+  },
 }
 
 export const submitAsyncSchema = submitSyncSchema
@@ -16,9 +16,9 @@ export const fetchAsyncSchema = {
   params: {
     type: 'object',
     properties: {
-      id: { type: ['number', 'string'] }
+      id: { type: ['number', 'string'] },
     },
     required: ['id'],
-    additionalProperties: false
-  }
+    additionalProperties: false,
+  },
 }

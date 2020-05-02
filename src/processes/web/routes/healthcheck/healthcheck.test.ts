@@ -1,6 +1,6 @@
 import { buildContainer } from '../../../../util/test/build-container'
-import { buildServer } from '../../build-server'
 import { injectRequest } from '../../../../util/test/inject-request'
+import { buildServer } from '../../build-server'
 
 describe('routes.healthcheck', () => {
 
@@ -10,7 +10,7 @@ describe('routes.healthcheck', () => {
 
     const response = await injectRequest(server, {
       method: 'GET',
-      url: 'healthcheck'
+      url: 'healthcheck',
     })
 
     expect(response.payload).toEqual({ success: true })

@@ -1,8 +1,8 @@
 import { FastifyHttpResponse } from 'fastify'
-import { SubmitSyncRequest } from '../types'
 import { Procedure } from '../../../../../procedures/types'
+import { SubmitSyncRequest } from '../types'
 
-export async function submitSyncHandler (request: SubmitSyncRequest, reply: FastifyHttpResponse) {
+export async function submitSyncHandler(request: SubmitSyncRequest, reply: FastifyHttpResponse) {
   const { procedure: procedureName, params } = request.body
   const resolutionPath = `procedures.${procedureName}`
 

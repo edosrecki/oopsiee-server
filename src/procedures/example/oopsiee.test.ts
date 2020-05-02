@@ -1,5 +1,5 @@
-import { oopsiee } from './oopsiee'
 import { Logger } from '../../lib/logger'
+import { oopsiee } from './oopsiee'
 
 describe('procedures.example.oopsiee', () => {
   const params = { key: 'value' }

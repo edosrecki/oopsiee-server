@@ -1,18 +1,18 @@
 import { asValue, createContainer } from 'awilix'
-import { processJob } from './process-job'
 import { Job } from '../../../lib/queue'
+import { processJob } from './process-job'
 
 describe('workers.job-processor.process-job', () => {
 
   const procedure = 'test.oopsiee'
   const params = { foo: 'bar' }
   const context =  { user: 'test' }
-  const result = { 'pippo': 'inzaghi' }
+  const result = { pippo: 'inzaghi' }
   const buildJob = (): Job => {
     const job = {
       id: 1,
       data: { procedure, params, context },
-      update: jest.fn()
+      update: jest.fn(),
     }
 
     return job as any
@@ -34,7 +34,7 @@ describe('workers.job-processor.process-job', () => {
     const container = createContainer()
     const job = buildJob()
 
-    const procedureFn = jest.fn().mockImplementation(async (params, context) => result)
+    const procedureFn = jest.fn().mockImplementation(async (p, c) => result)
     container.register('procedures.test.oopsiee', asValue(procedureFn))
 
     await processJob(container)(job)
