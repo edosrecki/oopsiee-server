@@ -31,8 +31,7 @@ jobs:
       - name: Test
         run: |
           npm install
-          npm test -- --coverage
-          npx codecov
+          npm test
 
       - name: Build
         run: |
