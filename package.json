@@ -47,7 +47,7 @@
     "@semantic-release/changelog": "^3.0.6",
     "@semantic-release/git": "^7.0.18",
     "@types/bull": "^3.12.2",
-    "@types/flat": "0.0.28",
+    "@types/flat": "^5.0.0",
     "@types/glob": "^7.1.1",
     "@types/jest": "^25.2.1",
     "@types/jsonwebtoken": "^8.3.9",
@@ -63,7 +63,7 @@
     "rimraf": "^3.0.2",
     "semantic-release": "^15.14.0",
     "ts-jest": "^25.4.0",
-    "ts-node": "^8.9.1",
+    "ts-node": "^8.10.1",
     "tslint": "^5.20.1",
     "typescript": "^3.8.3"
   },
