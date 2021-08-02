@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "awilix": "^4.2.6",
-    "bull": "^3.13.0",
+    "bull": "^3.27.0",
     "envalid": "^6.0.1",
     "fastify": "^2.14.0",
     "fastify-plugin": "^1.6.1",
