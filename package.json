@@ -54,7 +54,7 @@
     "@types/lodash": "^4.14.150",
     "@types/node": "^12.12.37",
     "@types/pino": "^6.0.0",
-    "codecov": "^3.6.5",
+    "codecov": "^3.8.3",
     "copyfiles": "^2.2.0",
     "husky": "^4.2.5",
     "jest": "^25.5.4",
