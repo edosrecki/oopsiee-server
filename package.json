@@ -38,7 +38,7 @@
     "fastify-sensible": "^2.1.1",
     "fastify-static": "^2.7.0",
     "flat": "^5.0.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.15",
     "pino": "^6.2.1",
     "pino-pretty": "^4.0.0"
